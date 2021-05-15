@@ -1,0 +1,36 @@
+Create blog_project with startproject cmd.
+Create Users app and create custom user model before first migration.
+Add AUTH_USER_MODEL setting which is 'app_name.custom_user_model_classname' 
+and install users app.
+Apply migrations and check if starting page is displayed.
+
+*Note:
+A Manager is the interface through which database query operations are provided to Django models.
+By default, Django adds a Manager with the name “objects” to every Django model class.
+This manager contains metohds like all(), filter(), create() etc.
+If we want to add additional functionality while accessing database, we can created custom manager
+by inheritating django.db.models.Manager.
+Then in our model, objects = CustomManager()
+
+As we dont want to change any accessing functionality, we wont create custom django.db.models.Manager.
+Now create two forms: one for user creation and one for user change.
+Default usercreation and userchange forms use inbuild "USER" model. We will customise them to use
+our CustomUser.
+
+Now extend UserAdmin, change the default add_form, form, fieldsets, add_fieldsets and
+register CustomUser and newly created CustomUserAdmin.
+Make the migrations again.
+Create superuser and check admin site for custom user model, user creation and user change.
+
+Create post app, install, post model and template for showing all the posts.
+Add get_absolute_url method to Post model.
+Create view and url to render that template.
+Change setting file to look for templates folder.
+Register it to admin. Create sample pots and check html page.
+
+Create list, details, update, Create and delete views.
+Provide success_url to  delete views as some action need to performed.
+Create and update views will get_absolute_url from model.
+
+In the templates using form, inside form <input> must have type submit to perform action on
+clicking the button.
