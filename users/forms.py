@@ -5,10 +5,11 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
-        # fields we want to be availabel for form to add new user
+        # fields we want to be available for form to add new user
         # password and confirm password are not neede add explicitly
-        fields = ('email', 'age')
+        fields = ('username', 'email', 'age')
         model = CustomUser
+
 
 class CustomUserChangeForm(UserChangeForm):
 

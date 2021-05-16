@@ -23,16 +23,20 @@ class UpdatePost(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         current_user = self.get_object()
-        return current_user == self.request.user
+        return current_user.author == self.request.user
 
 
-class DeletePost(DeleteView):
+class DeletePost(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'posts/delete_post.html'
     success_url = reverse_lazy('home')
 
+    def test_func(self):
+        current_user = self.get_object()
+        return current_user.author == self.request.user
 
-class CreatePost(CreateView):
+
+class CreatePost(LoginRequiredMixin, CreateView):
     model = Post
     fields = ('title', 'description')
     template_name = 'posts/create_post.html'

@@ -40,3 +40,10 @@ Use login_required decorator in django. Various inbuild view decorators are avai
 Create custom decorator to check if the user deleting post is same user who created it.
 *Note: Decorators cant be used on classes so class based views have to use mixin instead of decs.
 
+Add allauth settings to use allauth for authentication and required email setting as well.
+Change domain name in admin to 127.0.0.1
+*Note:
+allauth installation needs ,allauth, allauth,account and allauth.socialaccount even though
+we are not using any social account login.
+If we want to use custom tamplates for account features, they need to be at "templates/account"
+NOT ACCOUNTS.
