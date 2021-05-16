@@ -34,3 +34,9 @@ Create and update views will get_absolute_url from model.
 
 In the templates using form, inside form <input> must have type submit to perform action on
 clicking the button.
+
+For adding create view, override form_valid method to set user to current username.
+Use login_required decorator in django. Various inbuild view decorators are available in django.
+Create custom decorator to check if the user deleting post is same user who created it.
+*Note: Decorators cant be used on classes so class based views have to use mixin instead of decs.
+

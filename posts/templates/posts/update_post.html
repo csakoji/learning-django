@@ -7,7 +7,16 @@ Update {{ object.title }}
 {% block content %}
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="card">
+        <div class="card-header">
+            <p>Title</p>
+            {{ form.title }}
+        </div>
+        <div class="card-body">
+            <p>Description</p>
+            {{ form.description }}
+        </div>
+    </div>
     <input type="submit" value="Update">
 </form>
 {% endblock content%}

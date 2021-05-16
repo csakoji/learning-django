@@ -16,6 +16,8 @@
         <div class="container-fluid">
         <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}">Home</a>
+            {% block links %}
+            {% endblock links %}
         </li>
         <ul class="navbar-nav navbar-right">
             <li><a href="#">Sign Up</a></li>
